@@ -1,6 +1,7 @@
 package com.scaler.productcatalogserviceproject.controllers;
 
-import com.scaler.productcatalogserviceproject.dtos.GenericProductDto;
+import com.scaler.productcatalogserviceproject.dtos.RequestProductDto;
+import com.scaler.productcatalogserviceproject.dtos.ResponseProductDto;
 import com.scaler.productcatalogserviceproject.models.Product;
 import com.scaler.productcatalogserviceproject.services.ProductService;
 import lombok.AllArgsConstructor;
@@ -18,11 +19,10 @@ public class ProductController {
     }
 
     @PostMapping
-    public GenericProductDto createProduct(@RequestBody GenericProductDto request) {
-        Product product =  productService.createProduct(request);
-        return GenericProductDto.convertToGenericProductDto(product);
+    public ResponseProductDto addProduct(@RequestBody RequestProductDto request) {
+
+        Product product =  productService.addProduct(request);
+        return ResponseProductDto.convertToResponseProductDto(product);
     }
-
-
 }
 

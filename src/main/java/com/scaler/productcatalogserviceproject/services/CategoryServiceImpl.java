@@ -10,9 +10,16 @@ import org.springframework.stereotype.Service;
 public class CategoryServiceImpl implements CategoryService {
 
     CategoryRepository categoryRepository;
+
     @Override
     public Category getCategoryById(Long id) {
         return categoryRepository.findById(id).get();
+    }
+
+    @Override
+    public Category getCategoryByName(String categoryName) {
+
+        return categoryRepository.findByCategoryName(categoryName);
     }
 
     @Override

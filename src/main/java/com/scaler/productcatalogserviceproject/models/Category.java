@@ -17,7 +17,9 @@ public class Category extends BaseModel {
     @Column(name = "category_name")
     private String categoryName;
 
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    private String description;
+
+    @OneToMany(mappedBy = "category")
     @JsonIgnoreProperties("category")
     private List<Product> products = new ArrayList<>();
 }

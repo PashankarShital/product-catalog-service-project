@@ -3,6 +3,7 @@ package com.scaler.productcatalogserviceproject.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,11 +11,15 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Product extends BaseModel {
 
     private String title;
     private String description;
-    private String image;
+
+    @Column(name = "image_url")
+    private String imageUrl;
+
     private double price;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
